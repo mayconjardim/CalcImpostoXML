@@ -1,17 +1,20 @@
 <!-- app.component.html -->
 <div class="container mt-4">
-  <h1 class="mb-4">Calculadora de Impostos de NF-e <span style="font-size: 12px;">by Maycon Jardim</span></h1> 
-  
+  <h1 class="mb-4 text-primary">Calculadora de Impostos de NF-e 
+    <span style="font-size: 12px; color: #6c757d;">by Maycon Jardim</span>
+  </h1>
+
   <!-- Upload de arquivo -->
   <div class="mb-4">
-    <input type="file" class="form-control" (change)="onFileSelected($event)" />
+    <label class="form-label" for="fileUpload">Selecione o arquivo XML</label>
+    <input type="file" id="fileUpload" class="form-control" (change)="onFileSelected($event)" />
   </div>
 
   <!-- Se existir produtos -->
   <div *ngIf="produtos.length > 0">
-    <h2 class="mb-3">Produtos</h2>
-    <table class="table table-striped table-bordered">
-      <thead class="thead-dark">
+    <h2 class="mb-3 text-secondary">Lista de Produtos</h2>
+    <table class="table table-hover table-bordered text-center">
+      <thead class="bg-dark text-white">
         <tr>
           <th>Nome</th>
           <th>Valor</th>
@@ -43,14 +46,14 @@
       </tbody>
     </table>
 
-    <h3 class="mt-4">Totais</h3>
+    <h3 class="mt-4 text-success">Totais</h3>
     <div class="list-group">
-      <p class="list-group-item"><strong>Valor Total dos Produtos:</strong> {{ totalValor | currency: 'BRL' }}</p>
-      <p class="list-group-item"><strong>ICMS Total:</strong> {{ totalICMS | currency: 'BRL' }}</p>
-      <p class="list-group-item"><strong>IPI Total:</strong> {{ totalIPI | currency: 'BRL' }}</p>
-      <p class="list-group-item"><strong>PIS Total:</strong> {{ totalPIS | currency: 'BRL' }}</p>
-      <p class="list-group-item"><strong>COFINS Total:</strong> {{ totalCOFINS | currency: 'BRL' }}</p>
-      <p class="list-group-item"><strong>Valor Total com Impostos:</strong> {{ totalNota | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>Valor Total dos Produtos:</strong> {{ totalValor | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>ICMS Total:</strong> {{ totalICMS | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>IPI Total:</strong> {{ totalIPI | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>PIS Total:</strong> {{ totalPIS | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>COFINS Total:</strong> {{ totalCOFINS | currency: 'BRL' }}</p>
+      <p class="list-group-item bg-light"><strong>Valor Total com Impostos:</strong> {{ totalNota | currency: 'BRL' }}</p>
     </div>
   </div>
 </div>
